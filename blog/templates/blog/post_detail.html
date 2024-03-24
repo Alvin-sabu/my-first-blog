@@ -11,15 +11,15 @@
             </a>
         </aside>
         {% if post.published_date %}
-            <div class="date">
-                Published: {{ post.published_date }}
-            </div>
-        {% else %}
+        <div class="date" style="color: #0c0101;"> <!-- Changed color of the published date -->
+            Published: {{ post.published_date }}
+        </div>
+    {% else %}
             <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>Author: {{ post.author.username }}</p> <!-- Display author's username -->
+        <h2 style="font-size: 34px; color: #da1414;">{{ post.title }}</h2> <!-- Increased font size and changed color -->
+        <p style="font-size: 28px; color: #140101;">{{ post.text|linebreaksbr }}</p> <!-- Increased font size and changed color -->
+        <p style="font-size: 16px; color: #1a1616;">Author: {{ post.author.username }}</p> <!-- Increased font size and changed color -->
     </article>
 
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
@@ -40,11 +40,11 @@
                         </a>
                     {% endif %}
                 </div>
-                <strong>{{ comment.author }}</strong>
-                <p>{{ comment.text|linebreaks }}</p>
+                <strong style="font-size: 16px; color: #444;">{{ comment.author }}</strong> <!-- Increased font size and changed color -->
+                <p style="font-size: 18px; color: #666;">{{ comment.text|linebreaks }}</p> <!-- Increased font size and changed color -->
             </div>
         {% endif %}
     {% empty %}
-        <p>No comments here yet :(</p>
+        <p>No comments here yet</p>
     {% endfor %}
 {% endblock %}
